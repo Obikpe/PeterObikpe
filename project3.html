@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project: Internet Usage Data Cleaning</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==\" crossorigin=\"anonymous\" referrerpolicy=\"no-referrer\" />
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <header class="bg-blue-600 text-white py-4 md:py-6">
+        <div class="container mx-auto px-4">
+            <h1 class="text-2xl font-semibold md:text-3xl">Project: Internet Usage Data Cleaning</h1>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+        <section id="project3-overview" class="mb-8">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4 md:text-3xl">Project Overview</h2>
+            <p class="text-gray-700 leading-relaxed">
+                This project focuses on cleaning and preparing global internet usage data. The dataset contains information on internet usage across various countries from 2000 to 2023.  The cleaning process ensures that the data is accurate, complete, and ready for further analysis.
+            </p>
+        </section>
+
+        <section id="project3-details" class="mb-8">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4 md:text-3xl">Project Details</h2>
+            <div class="space-y-4">
+                <h3 class="text-lg font-semibold text-blue-600">Key Objectives:</h3>
+                <ul class="list-disc list-inside text-gray-700 space-y-2">
+                    <li>Handling rows with excessive missing data.</li>
+                    <li>Imputing missing values in specific columns.</li>
+                    <li>Deleting irrelevant columns.</li>
+                 </ul>
+                <h3 class="text-lg font-semibold text-blue-600">Data Sources:</h3>
+                <p class="text-gray-700 leading-relaxed">
+                    The original dataset, "Global Internet Usage by Country (2000-2023)," was downloaded from Kaggle.
+                </p>
+                <p class="text-gray-700 leading-relaxed">
+                    A log of the data cleaning process is available <a href="Data_Cleaning_Log_Internet_Usage_V01.docx">here</a>.
+                </p>
+                 <p class="text-gray-700 leading-relaxed">
+                    The raw and cleaned data is available <a href="Internet Usage Cleaning.xlsx">here</a>.
+                </p>
+
+                <h3 class="text-lg font-semibold text-blue-600">Data Cleaning Steps:</h3>
+                <ul class="list-disc list-inside text-gray-700 space-y-2">
+                    <li>Rows with missing data in more than 49% of the columns were deleted to remove incomplete records.</li>
+                    <li>Missing values in the "2000 to 2022" columns were replaced with the median of the non-missing values in each column.</li>
+                    <li>The "2023" column was deleted due to a high percentage of missing values (72%), which could introduce bias.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="project3-insights" class="mb-8">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4 md:text-3xl">Key Insights</h2>
+            <ul class="list-disc list-inside text-gray-700 space-y-2">
+                <li>The data cleaning process ensures that the dataset is ready for accurate and reliable analysis.</li>
+                <li>Handling missing data appropriately is crucial for avoiding bias and drawing meaningful conclusions.</li>
+                <li>The resulting cleaned dataset provides a solid foundation for exploring trends in global internet usage.</li>
+            </ul>
+        </section>
+
+        <section id="project3-conclusion" class="mb-8">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4 md:text-3xl">Conclusion</h2>
+            <p class="text-gray-700 leading-relaxed">
+                This project highlights the importance of data cleaning in the data analysis workflow. By addressing missing values and removing irrelevant data, the project ensures the quality and reliability of the internet usage dataset for subsequent analysis and visualization.
+            </p>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-4 mt-10">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2024 My Data Analysis Portfolio. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+       const navLinks = document.querySelectorAll('.nav-links a');
+        const sections = document.querySelectorAll('section');
+
+        function updateActiveNavLink() {
+            let currentSectionId = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.scrollY >= sectionTop - 100 && window.scrollY < sectionTop + sectionHeight - 100) {
+                     currentSectionId = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === currentSectionId) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateActiveNavLink);
+    </script>
+</body>
+</html>

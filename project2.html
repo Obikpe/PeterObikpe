@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project: COVID-19 Data Analysis</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==\" crossorigin=\"anonymous\" referrerpolicy=\"no-referrer\" />
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <header class="bg-blue-600 text-white py-4 md:py-6">
+        <div class="container mx-auto px-4">
+            <h1 class="text-2xl font-semibold md:text-3xl">Project: COVID-19 Data Analysis</h1>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+        <section id="project2-overview" class="mb-8">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4 md:text-3xl">Project Overview</h2>
+            <p class="text-gray-700 leading-relaxed">
+                This project involves analyzing COVID-19 data using SQL.  The analysis explores the spread of the virus, mortality rates, and vaccination efforts. The findings can be valuable for policymakers, healthcare organizations, and the public in understanding the dynamics of the pandemic and making informed decisions.
+            </p>
+        </section>
+
+        <section id="project2-details" class="mb-8">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4 md:text-3xl">Project Details</h2>
+            <div class="space-y-4">
+                <h3 class="text-lg font-semibold text-blue-600">Key Objectives:</h3>
+                <ul class="list-disc list-inside text-gray-700 space-y-2">
+                    <li>Selecting relevant data from the `CovidDeaths` and `CovidVaccinations` tables.</li>
+                    <li>Calculating key metrics such as death percentage and infection percentage.</li>
+                    <li>Filtering data to focus on specific locations (e.g., Nigeria).</li>
+                    <li>Identifying countries with the highest infection and death rates.</li>
+                    <li>Analyzing COVID-19 data by continent.</li>
+                    <li>Examining global COVID-19 numbers on a daily and overall basis.</li>
+                    <li>Comparing total population with vaccination data, including using CTEs and temporary tables.</li>
+                    <li>Creating views to store data for future visualization.</li>
+                </ul>
+                <h3 class="text-lg font-semibold text-blue-600">Data Sources:</h3>
+                 <p class="text-gray-700 leading-relaxed">
+                    The analysis uses data from two tables:
+                </p>
+                <ul class="list-disc list-inside text-gray-700 space-y-2">
+                    <li>`CovidDeaths`: Contains information about COVID-19 cases and deaths.</li>
+                    <li>`CovidVaccinations`: Contains data related to COVID-19 vaccinations.</li>
+                </ul>
+                <p class="text-gray-700 leading-relaxed">
+                    You can find the SQL code used for this analysis <a href="Covid Portfolio Project.sql">here</a>.
+                </p>
+
+                <h3 class="text-lg font-semibold text-blue-600">Key SQL Queries and Analysis:</h3>
+                <ul class="list-disc list-inside text-gray-700 space-y-2">
+                    <li><strong>Data Selection and Ordering:</strong> Selecting specific columns (`Location`, `Date`, `total_cases`, `new_cases`, `total_deaths`, `population`) from the `CovidDeaths` table and ordering the results by location and date.</li>
+                    <li><strong>Total Cases vs. Total Deaths:</strong> Calculating the death percentage for each location and date to understand the mortality rate of COVID-19.  The query filters for Nigeria.</li>
+                     <li><strong>Population that has COVID:</strong> Calculating the percentage of the population that has been confirmed to have contracted COVID-19.</li>
+                    <li><strong>Highest Infection Rate:</strong> Identifying the location with the highest infection rate compared to its population.  The query filters for Nigeria.</li>
+                    <li><strong>Highest Death Rate:</strong> Determining the location with the highest death rate.</li>
+                    <li><strong>Analysis by Continent:</strong>  Analyzing total deaths and death counts by continent.</li>
+                    <li><strong>Global Numbers:</strong>  Calculating daily and overall global COVID-19 cases, deaths, and death percentages.</li>
+                    <li><strong>Total Population vs. Vaccinations:</strong>  Comparing population data with vaccination data.  This includes calculating the rolling number of people vaccinated using window functions, CTEs, and temporary tables.</li>
+                    <li><strong>Creating Views:</strong>  Creating a view (`PercentagePopulationVaccinated`) to store the results of the population vs. vaccination analysis for future use, such as in data visualization.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="project2-insights" class="mb-8">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4 md:text-3xl">Key Insights</h2>
+            <ul class="list-disc list-inside text-gray-700 space-y-2">
+                <li>The analysis provides insights into the spread of COVID-19, showing how the virus has affected different populations over time.</li>
+                <li>Mortality rates vary by location, highlighting differences in healthcare systems and public health responses.</li>
+                <li>Vaccination efforts are quantified, showing the percentage of the population vaccinated, which is crucial for understanding progress in controlling the pandemic.</li>
+                <li>Global trends, including daily and total cases and deaths, provide a broader context for understanding the pandemic's impact.</li>
+            </ul>
+        </section>
+
+        <section id="project2-conclusion" class="mb-8">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4 md:text-3xl">Conclusion</h2>
+            <p class="text-gray-700 leading-relaxed">
+                This project demonstrates the use of SQL to analyze COVID-19 data, providing valuable insights into the pandemic's progression and the effectiveness of vaccination campaigns. The results of this analysis can be used to inform public health policy and improve responses to similar crises in the future.
+            </p>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-4 mt-10">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2024 My Data Analysis Portfolio. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+       const navLinks = document.querySelectorAll('.nav-links a');
+        const sections = document.querySelectorAll('section');
+
+        function updateActiveNavLink() {
+            let currentSectionId = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.scrollY >= sectionTop - 100 && window.scrollY < sectionTop + sectionHeight - 100) {
+                     currentSectionId = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === currentSectionId) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateActiveNavLink);
+    </script>
+</body>
+</html>
